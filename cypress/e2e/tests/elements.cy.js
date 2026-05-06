@@ -53,7 +53,7 @@ describe('Work with basic elements', () => {
         .should('be.checked') //verifica se o radio button está selecionado
         
         cy.get('#formSexoMasc').should('not.be.checked') //verifica se o radio button não está selecionado
-        cy.get('[name="formSexo"]').should('have.length', 2) //verifica se existem dois radio buttons com o mesmo name
+        cy.get('[name=formSexo]').should('have.length', 2) //verifica se existem dois radio buttons com o mesmo name
 
     })
 })
