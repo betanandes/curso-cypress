@@ -57,7 +57,7 @@ describe('Work with basic elements', () => {
 
     })
 
-    it.only('Checkbox', () => {
+    it('Checkbox', () => {
         cy.get('#formComidaPizza')
         .click()
         .should('be.checked') //verifica se o checkbox está selecionado
@@ -67,5 +67,15 @@ describe('Work with basic elements', () => {
         cy.get('#formComidaFrango').should('be.checked') //verifica se o checkbox está selecionado
         cy.get('#formComidaCarne').should('be.checked') //verifica se o checkbox está selecionado
         cy.get('#formComidaVegetariana').should('be.checked') //verifica se o checkbox está selecionado
+    })
+
+    it.only('Combo', () => {
+        cy.get('[data-test=dataEscolaridade]')
+        .select('2o grau completo')
+        .should('have.value', '2graucomp')
+
+        cy.get('[data-test=dataEscolaridade]')
+        .select('Superior') // para selecionar pade usar o texto ou o valor
+        .should('have.value', 'superior') // para verificar o valor selecionado tem que ser o value do option
     })
 })
