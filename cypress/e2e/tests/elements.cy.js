@@ -56,4 +56,16 @@ describe('Work with basic elements', () => {
         cy.get('[name=formSexo]').should('have.length', 2) //verifica se existem dois radio buttons com o mesmo name
 
     })
+
+    it.only('Checkbox', () => {
+        cy.get('#formComidaPizza')
+        .click()
+        .should('be.checked') //verifica se o checkbox está selecionado
+
+        cy.get('[name=formComidaFavorita]').click({ multiple: true}) //clica em todos os checkboxes com o mesmo name
+        cy.get('#formComidaPizza').should('not.be.checked') //verifica se o checkbox não está selecionado
+        cy.get('#formComidaFrango').should('be.checked') //verifica se o checkbox está selecionado
+        cy.get('#formComidaCarne').should('be.checked') //verifica se o checkbox está selecionado
+        cy.get('#formComidaVegetariana').should('be.checked') //verifica se o checkbox está selecionado
+    })
 })
